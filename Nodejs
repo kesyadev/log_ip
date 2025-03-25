@@ -1,0 +1,18 @@
+<?php
+$token = "7989072627:AAHOwAzGmqhYgM31Ht7hC5eBE4Rot-C4JTc"; // Ganti dengan Token API bot lo
+$chat_id = "7510598082"; // Ganti dengan ID Telegram lo
+
+$ip = $_SERVER['REMOTE_ADDR'];
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+$message = "🔥 IP Baru Masuk! 🔥\n\nIP: $ip\nUser Agent: $user_agent";
+
+// Kirim ke Telegram
+$url = "https://api.telegram.org/bot$token/sendMessage?chat_id=$chat_id&text=" . urlencode($message);
+$response = file_get_contents($url);
+
+if ($response) {
+    echo "Pesan terkirim ke Telegram!";
+} else {
+    echo "Gagal mengirim pesan.";
+}
+?>
